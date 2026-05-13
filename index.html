@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- icon -->
+    <link
+      rel="shortcut icon"
+      href="/favicons/bola-pokemon.png"
+      type="image/x-icon"
+    />
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/busca-pokemon.css" />
+    <link rel="stylesheet" href="css/detalhes-pokemon.css" />
+    <link rel="stylesheet" href="css/pokemon-not-found.css" />
+
+    <!-- scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="js/controller.js"></script>
+    <script defer src="js/script.js"></script>
+
+    <title>Pokédex Web</title>
+  </head>
+  <body>
+
+    <!--  TELA SPLASH -->
+    <section id="splash-screen">
+      <img src="media/images/logo.png" alt="Pokédex Logo" class="logo" />
+      <img src="media/images/pokeball.png" alt="Pokeball" class="pokeball" />
+
+      <button id="start-btn" class="btn-default">
+        <a href="#pokedex-app"></a>Start
+      </button>
+
+      <img src="media/images/semaforo.png" alt="Semaforo" class="semaforo" />
+    </section>
+
+    <!-- POKÉDEX -->
+    <main id="pokedex-app" hidden>
+
+      <section class="card-pokemon">
+        <img
+          src="media/images/logo.png"
+          alt="Pokédex Logo"
+          class="logo-desktop"
+        />
+
+        <!-- CARDS POKÉMON -->
+        <div class="pokemon-card-container">
+
+          <!-- CARD TELA INICIAL -->
+          <article class="pokemon-data scroll-to-top" id="card-tela-inicial">
+            <h2 class="pokemon-id-container m-0">
+              <span class="pokemon-id"></span>
+            </h2>
+
+            <div class="pokemon-container">
+              <img src="" alt="pokemon" class="pokemon-img" />
+
+              <h1 class="pokemon-name-container m-0">
+                <span class="pokemon-name"></span>
+              </h1>
+
+              <h3 class="pokemon-type-container m-0"></h3>
+            </div>
+          </article>
+
+          <!--  CARD TELA BUSCA -->
+          <article
+            class="pokemon-data scroll-to-down"
+            id="card-tela-busca"
+            hidden
+          >
+            <img alt="pokemon" class="pokemon-img" />
+
+            <ul class="m-0">
+              <li>
+                <h1 class="pokemon-name-container m-0">
+                  <span class="pokemon-name"></span>
+                </h1>
+              </li>
+
+              <li>
+                <h2 class="pokemon-id-container m-0">
+                  <span class="pokemon-id"></span>
+                </h2>
+              </li>
+
+              <li class="pokemon-peso-container">
+                Peso: <span class="pokemon-weight"></span>
+              </li>
+
+              <li class="pokemon-altura-container">
+                Altura: <span class="pokemon-height"></span>
+              </li>
+
+              <li class="pokemon-habilidades-container">
+                Habilidades: <span class="pokemon-abilities"></span>
+              </li>
+
+              <li class="pokemon-descricao-container">
+                Descrição: <span class="pokemon-description"> </span>
+              </li>
+
+              <div>
+                <span class="btn-som-pokemon">SOM </span>
+                <i class="bi bi-volume-up-fill"></i>
+              </div>
+
+              <a class="btn-detalhes" type="button" href="#card-tela-detalhes"
+                >+ informacoes</a
+              >
+            </ul>
+          </article>
+
+          <!-- CARD TELA DETALHES -->
+          <article
+            class="pokemon-data scroll-to-down"
+            id="card-tela-detalhes"
+            hidden
+          >
+            <img alt="pokemon" class="pokemon-img" />
+
+            <ul class="m-0">
+              <li>
+                <h1 class="pokemon-name-container m-0">
+                  <span class="pokemon-name"></span>
+                </h1>
+              </li>
+
+              <li>
+                <h2 class="pokemon-id-container m-0">
+                  <span class="pokemon-id"></span>
+                </h2>
+              </li>
+
+              <li class="pokemon-caracteristicas-container">
+                caracteristicas: <span class="pokemon-characteristic"></span>
+              </li>
+
+              <h4 class="m-0">golpes:</h4>
+              <li class="pokemon-golpes-container"></li>
+
+              <li class="pokemon-dados-batalha-container">
+                dados de batalha:
+
+                <div class="stat-row">
+                  <label for="bar-hp" class="stat-label">HP</label>
+                  <progress
+                    id="bar-hp"
+                    class="progress-hp"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-hp" class="stat-number"></span>
+                </div>
+
+                <div class="stat-row">
+                  <label for="bar-atk" class="stat-label">ATK</label>
+                  <progress
+                    id="bar-atk"
+                    class="progress-atk"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-atk" class="stat-number"></span>
+                </div>
+
+                <div class="stat-row">
+                  <label for="bar-def" class="stat-label">DEF</label>
+                  <progress
+                    id="bar-def"
+                    class="progress-def"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-def" class="stat-number"></span>
+                </div>
+
+                <div class="stat-row">
+                  <label for="bar-spa" class="stat-label">Sp.A</label>
+                  <progress
+                    id="bar-spa"
+                    class="progress-spa"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-spa" class="stat-number"></span>
+                </div>
+
+                <div class="stat-row">
+                  <label for="bar-spd" class="stat-label">Sp.D</label>
+                  <progress
+                    id="bar-spd"
+                    class="progress-spd"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-spd" class="stat-number"></span>
+                </div>
+
+                <div class="stat-row">
+                  <label for="bar-spe" class="stat-label">SPE</label>
+                  <progress
+                    id="bar-spe"
+                    class="progress-spe"
+                    value="0"
+                    max="100"
+                  ></progress>
+                  <span id="text-spe" class="stat-number"></span>
+                </div>
+              </li>
+
+              <li class="pokemon-descricao-container">
+                evolucao:
+
+                <div
+                  class="pokemon-evolution-container"
+                  id="evolution-container"
+                ></div>
+              </li>
+
+              <button class="btn-voltar" type="button">voltar</button>
+            </ul>
+          </article>
+
+          <!-- CARD TELA ERRO -->
+          <article class="pokemon-data" id="card-tela-erro" hidden>
+            <img
+              src="media/images/pokemon-not-found.png"
+              alt="pokemon"
+              class="pokemon-not-found"
+            />
+
+            <h6 class="error-message m-0">
+              Busca não encontrada, faça uma nova pesquisa.
+            </h6>
+          </article>
+
+          <form class="form">
+            <input
+              type="search"
+              class="input-search"
+              placeholder="Buscar pokémon (nome ou nº)"
+              required
+            />
+          </form>
+        </div>
+
+        <!-- CONTROLE NAVEGACAO -->
+        <nav class="btn-group">
+
+          <!-- D-PAD -->
+          <ul class="d-pad">
+            <button class="button btn-up">
+              <img src="media/images/arrow-d-pad.png" alt="botão para cima" />
+            </button>
+
+            <button class="button btn-prev">
+              <img src="media/images/arrow-d-pad.png" alt="botão para voltar" />
+            </button>
+
+            <button class="button btn-center">
+              <img src="media/images/control-center.png" alt="botão central" />
+            </button>
+
+            <button class="button btn-next">
+              <img src="media/images/arrow-d-pad.png" alt="botão para frente" />
+            </button>
+
+            <button class="button btn-down">
+              <img src="media/images/arrow-d-pad.png" alt="botão para baixo" />
+            </button>
+          </ul>
+
+          <button class="btn-audio">
+            <div class="status-btn"></div>
+            <span class="txt-btn">on</span>
+          </button>
+
+          <button class="button btn-ok">
+            <img src="media/images/btn-ok.png" alt="botão pesquisar" />
+          </button>
+        </nav>
+      </section>
+    </main>
+    <audio id="bg-music" loop>
+      <source src="media/audio/pokemon-center-theme.mp3" type="audio/mpeg" />
+    </audio>
+  </body>
+</html>

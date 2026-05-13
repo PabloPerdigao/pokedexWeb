@@ -1,0 +1,669 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  background-color: #AB1616;
+
+  background-image: url('/media/images/bg-pokeWeb-mobile.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-size: 1.6rem;
+  font-family: "Press Start 2P", system-ui;
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url('/media/images/bg-pokeWeb.png');
+  }
+}
+
+p,
+span {
+  font-size: 2.4rem;
+  font-family: "Pixelify Sans", sans-serif;
+  margin: 0;
+}
+
+.logo-desktop {
+  width: 286px;
+  height: auto;
+}
+
+/* SPLASH SCREEN */
+#splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 6.4rem;
+}
+
+#splash-screen .pokeball {
+  width: 198px;
+  height: auto;
+}
+
+.btn-default {
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 2.4rem;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+  background-color: #F9C90B;
+  box-shadow: 3px 7px 4px 0 rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  color: #000;
+}
+
+#splash-screen .semaforo {
+  width: 100px;
+  height: auto;
+}
+
+@media(min-width: 768px) {
+  body {
+    background-image: url('/media/images/bg-pokeWeb-mobile.png');
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  .logo {
+    width: 134px;
+    height: auto;
+  }
+
+
+  #splash-screen .pokeball {
+    width: 138px;
+    height: auto;
+  }
+
+  .btn-default {
+    width: 100%;
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+
+  #splash-screen .semaforo {
+    width: 98px;
+    height: auto;
+  }
+
+}
+
+/* FIM - SPLASH SCREEN */
+
+
+/*  POKEDÉX MOBILE */
+@media (max-width: 576px) {
+
+  #pokedex-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6.4rem;
+  }
+
+  #pokedex-app .header-pokedex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    padding: 0 2.4rem;
+  }
+
+  .header-pokedex .audio-control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .header-pokedex .audio-control p {
+    font-size: 1.6rem;
+    color: #fff;
+  }
+
+  .header-pokedex .audio-control .btn-audio {
+    padding: 0.6rem;
+
+    width: 9.6rem;
+    height: auto;
+
+    background: linear-gradient(0deg, rgba(242, 15, 15, 0.20) 0%, rgba(242, 15, 15, 0.20) 100%), rgba(0, 0, 0, 0.40);
+
+    border: 0.5px solid #000;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .header-pokedex .audio-control .btn-audio .status-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+
+    border-radius: 38px;
+    background: #3BC560;
+    box-shadow: 0 0 4px 2px #3BC560;
+
+  }
+
+  .header-pokedex .audio-control .btn-audio .txt-btn {
+    font-size: 1.6rem;
+    font-family: "Press Start 2P", system-ui;
+    text-transform: uppercase;
+    color: #fff;
+    margin-left: 1.4rem;
+  }
+
+  #card-tela-inicial {
+    height: 286px;
+  }
+
+  .pokemon-card-container {
+    padding: 0 2.4rem;
+  }
+
+  .card-pokemon form .input-search::placeholder {
+    font-size: 0.8rem;
+  }
+
+}
+
+.pokemon-card-container {
+  width: 100%;
+
+}
+
+.card-pokemon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: auto;
+  gap: 4.8rem;
+  margin: 4.8rem 0;
+}
+
+#card-tela-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-image: url('/media/images/bg-card.png');
+
+  width: 100%;
+  height: 285px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 4px solid #2A2A2A;
+  border-radius: 8px 8px 0 0;
+  padding: 2.4rem;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.pokemon-img {
+  width: 10.8rem;
+  height: 10.8rem;
+  margin-top: 2.4rem;
+}
+
+.pokemon-data .pokemon-id-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+
+}
+
+.pokemon-id,
+.pokemon-name {
+  font-size: 1.4rem;
+  color: #10310cdb;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+}
+
+.pokemon-card-container .pokemon-type-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  gap: 1rem;
+}
+
+
+.card-pokemon form {
+  width: 100%;
+}
+
+.card-pokemon form .input-search {
+  width: 100%;
+  padding: 1.2rem;
+
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: "Press Start 2P", system-ui;
+
+  background: #ACD4A2;
+  border: 4px solid #2A2A2A;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+.card-pokemon form .input-search::placeholder {
+  color: #10310cdb;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 0 2.4rem;
+}
+
+.card-pokemon .btn-audio {
+  padding: 0.6rem;
+
+  width: 8.2rem;
+  height: auto;
+
+  background: linear-gradient(0deg, rgba(242, 15, 15, 0.20) 0%, rgba(242, 15, 15, 0.20) 100%), rgba(0, 0, 0, 0.40);
+
+  border: 0.5px solid #000;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-pokemon .btn-audio .status-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: left 0.3s ease;
+
+  border-radius: 38px;
+  background: #3BC560;
+  box-shadow: 0 0 4px 2px #3BC560;
+
+}
+
+.card-pokemon .btn-audio .txt-btn {
+  font-size: 1.2rem;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+  color: #fff;
+  margin-left: 2.4rem;
+}
+
+
+.btn-group .btn-ok img {
+  width: 8.2rem;
+  height: auto;
+  margin: 0;
+}
+
+
+/* CONTROLES NAVEGACAO */
+.controls-container {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* D-PAD */
+.d-pad {
+  display: grid;
+  grid-template-columns: repeat(3, 22px);
+  grid-template-rows: repeat(3, 22px);
+
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 1rem;
+
+  position: relative;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.button:active {
+  transform: scale(0.90);
+}
+
+.d-pad .button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-pad .button img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.btn-up {
+  grid-column: 2;
+  grid-row: 1;
+  transform: rotate(0deg);
+  margin: -8px;
+}
+
+.btn-up:active {
+  transform: scale(0.90);
+}
+
+.btn-prev {
+  grid-column: 1;
+  grid-row: 2;
+  margin: -8px;
+
+  transform: rotate(-90deg);
+}
+
+.btn-prev:active {
+  transform: rotate(-90deg) scale(0.90);
+}
+
+.btn-center {
+  grid-column: 2;
+  grid-row: 2;
+
+  width: 100%;
+
+  border-radius: 12px;
+}
+
+.btn-next {
+  grid-column: 3;
+  grid-row: 2;
+
+  transform: rotate(90deg);
+  margin: -8px;
+}
+
+.btn-next:active {
+  transform: rotate(90deg) scale(0.90);
+}
+
+.btn-down {
+  grid-column: 2;
+  grid-row: 3;
+
+  transform: rotate(180deg);
+  margin: -8px;
+}
+
+.btn-down:active {
+  transform: rotate(180deg) scale(0.90);
+}
+
+/* RESPONSIVIDADE */
+@media(min-width: 576px) {
+  .card-pokemon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.4rem;
+
+
+    padding: 4.8rem;
+
+    background-color: #D40A22;
+    border: 6px solid #2A2A2A;
+    box-shadow: 0 12px 6.7px 0 rgba(0, 0, 0, 0.50);
+    border-radius: 24px;
+  }
+
+  #card-tela-inicial {
+    height: 350px;
+  }
+
+  .pokemon-card-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .pokemon-img {
+    margin-top: 4.8rem;
+  }
+
+  .pokemon-card-container {
+    gap: 2.4rem;
+  }
+
+
+  .btn-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4.8rem;
+    width: 100%;
+    padding: 0 2.4rem;
+  }
+
+  .card-pokemon .btn-audio {
+    padding: 0.6rem;
+
+    width: 9.6rem;
+    height: auto;
+
+    background: linear-gradient(0deg, rgba(242, 15, 15, 0.20) 0%, rgba(242, 15, 15, 0.20) 100%), rgba(0, 0, 0, 0.40);
+
+    border: 0.5px solid #000;
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .card-pokemon .btn-audio .status-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+
+    border-radius: 38px;
+    background: #3BC560;
+    box-shadow: 0 0 4px 2px #3BC560;
+
+  }
+
+  .card-pokemon .btn-audio .txt-btn {
+    font-size: 1.6rem;
+    font-family: "Press Start 2P", system-ui;
+    text-transform: uppercase;
+    color: #fff;
+    margin-left: 2.4rem;
+  }
+
+  .btn-group .btn-ok img {
+    width: 9.6rem;
+    height: auto;
+    margin: 0;
+  }
+
+
+  /* CONTROLES NAVEGACAO */
+  .controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .d-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 22px);
+    grid-template-rows: repeat(3, 22px);
+
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 1rem;
+
+    position: relative;
+  }
+
+  .button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+
+  .button:active {
+    transform: scale(0.90);
+  }
+
+  .d-pad .button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .d-pad .button img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .btn-up {
+    grid-column: 2;
+    grid-row: 1;
+    transform: rotate(0deg);
+    margin: -8px;
+  }
+
+  .btn-up:active {
+    transform: scale(0.90);
+  }
+
+  .btn-prev {
+    grid-column: 1;
+    grid-row: 2;
+    margin: -8px;
+
+    transform: rotate(-90deg);
+  }
+
+  .btn-prev:active {
+    transform: rotate(-90deg) scale(0.90);
+  }
+
+  .btn-center {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 100%;
+
+    border-radius: 12px;
+  }
+
+  .btn-next {
+    grid-column: 3;
+    grid-row: 2;
+
+    transform: rotate(90deg);
+    margin: -8px;
+  }
+
+  .btn-next:active {
+    transform: rotate(90deg) scale(0.90);
+  }
+
+  .btn-down {
+    grid-column: 2;
+    grid-row: 3;
+
+    transform: rotate(180deg);
+    margin: -8px;
+  }
+
+  .btn-down:active {
+    transform: rotate(180deg) scale(0.90);
+  }
+
+}

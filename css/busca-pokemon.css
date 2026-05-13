@@ -1,0 +1,82 @@
+#card-tela-busca {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  background: #DBFFDD;
+  height: auto;
+  max-width: 500px;
+
+
+  border: 4px solid #2A2A2A;
+  border-radius: 8px 8px 0 0;
+  padding: 2.4rem;
+}
+
+#card-tela-busca ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: left;
+  gap: 1.2rem;
+}
+
+#card-tela-busca ul li .pokemon-name,
+#card-tela-busca ul li .pokemon-id,
+#card-tela-busca ul li {
+  color: #10310cdb;
+  font-size: 1.6rem;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+}
+
+#card-tela-busca ul li span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+#card-tela-busca .btn-detalhes {
+  font-size: 1.4rem;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #000;
+  background-color: #F9C90B;
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.btn-som-pokemon {
+  font-size: 1rem;
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.6rem 0.6rem;
+  color: #000;
+  background-color: #ACD4A2;
+  text-transform: capitalize;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 0.4rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media(max-width: 576px) {
+  #card-tela-busca {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+
+  #card-tela-busca ul {
+    gap: 1rem;
+  }
+
+  #card-tela-busca ul li .pokemon-name,
+  #card-tela-busca ul li .pokemon-id,
+  #card-tela-busca ul li {
+    font-size: 1.4rem;
+  }
+}

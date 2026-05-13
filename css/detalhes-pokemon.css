@@ -1,0 +1,171 @@
+#card-tela-detalhes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  background: #DBFFDD;
+  height: auto;
+  max-width: 500px;
+
+  border: 4px solid #2A2A2A;
+  border-radius: 8px 8px 0 0;
+  padding: 2.4rem;
+}
+
+#card-tela-detalhes ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: left;
+  gap: 1.4rem;
+}
+
+#card-tela-detalhes ul li .pokemon-name,
+#card-tela-detalhes ul li .pokemon-id,
+#card-tela-detalhes ul li,
+#card-tela-detalhes ul h4 {
+  color: #10310cdb;
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+}
+
+#card-tela-detalhes ul li span {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: lowercase;
+
+}
+
+#card-tela-detalhes .btn-voltar {
+  font-size: 1.4rem;
+  font-family: "Press Start 2P", system-ui;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+  border: 1px solid #000;
+  background-color: #F9C90B;
+  border-radius: 8px;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.pokemon-golpes-container {
+  background-color: transparent !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pokemon-moves {
+  font-size: 1.2rem !important;
+  font-family: "Press Start 2P", system-ui;
+  padding: 0.6rem 0.6rem;
+  color: #000;
+  background-color: #ACD4A2;
+  text-transform: capitalize;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 0.4rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#card-tela-detalhes .pokemon-img {
+ margin-top: 0;
+}
+
+.pokemon-dados-batalha-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+}
+
+@media(max-width: 576px) {
+  #card-tela-detalhes {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+  #card-tela-detalhes ul {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  #card-tela-detalhes ul li .pokemon-name,
+  #card-tela-detalhes ul li .pokemon-id,
+  #card-tela-detalhes ul li {
+    font-size: 1.4rem;
+  }
+}
+
+/* DADOS BATALHA - BARRA DE PROGRESSO */
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 10px;
+}
+
+
+progress::-webkit-progress-bar {
+  background-color: #d1d1d1;
+  border-radius: 10px;
+  border: 0.2px solid #2A2A2A;
+}
+
+progress::-webkit-progress-value {
+  background-color: #DF2140;
+  border-radius: 10px;
+}
+
+progress::-moz-progress-bar {
+  background-color: #DF2140;
+  border-radius: 10px;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  font-family: "Press Start 2P", system-ui;
+  color: #000;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem; 
+}
+
+
+.pokemon-evolution-container {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+  gap: 1.5rem;
+}
+
+.evolution-item {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.evolution-img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.evolution-name {
+  text-transform: capitalize; 
+  font-size: 0.8rem; 
+}
+
+.evolution-arrow {
+  font-weight: bold;
+  color: #4a6b4a; 
+  font-size: 1.5rem;
+  margin-bottom: 20px; 
+}
