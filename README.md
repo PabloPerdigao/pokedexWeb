@@ -1,4 +1,4 @@
-# ![ícone pokébola](/favicons/bola-pokemon.png) Pokédex Web 
+# ![ícone pokébola](/favicons/bola-pokemon.png) Pokédex Web - Projeto de Consumo de API e UI/UX 
 
 ![Capa do Projeto](/media/images/cover-projeto.jpg)
 
