@@ -65,7 +65,6 @@ function mudarTela(novaTela) {
   cardTelaDetalhes.setAttribute("hidden", "");
   cardTelaErro.setAttribute("hidden", "");
 
-  // 2. Mostra apenas a tela que nós queremos
   if (novaTela === "inicial") {
     cardTelaInicial.removeAttribute("hidden");
   } else if (novaTela === "busca") {
