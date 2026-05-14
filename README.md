@@ -34,10 +34,12 @@ O projeto foi construído visando explorar/consumir a PokéAPI de maneira a apri
   * Prevenção de concorrência e vazamento de memória em eventos de áudio e renderização.
 * **[PokéAPI](https://pokeapi.co/):** API RESTful de consumo de dados (Endpoints utilizados: `/pokemon`, `/type`, `/pokemon-species`, `/characteristic`, `/evolution-chain`).
 
-## 🔗😉👇 Acesse a Pokédex Web no seu navegador
+## 🔗😉👇 Acesse a Pokédex Web
 
 O deploy da aplicação foi feito no Vercel, basta acessar através do seguinte link e ser feliz:
-###  [Pokédex Web](https://pokedex-webi.vercel.app/) 
+[Vercel | Pokédex Web](https://pokedex-webi.vercel.app/) 
+
+Link do design de UI no Figma: [Figma | Pokédex Web](https://pokedex-webi.vercel.app/](https://www.figma.com/design/wRCBfivnjHs5iVfbgqzNmV/Pok%C3%A9dex-Web-%7C-Pablo-Perdig%C3%A3o---Q1-V%C3%AAnus-manh%C3%A3-?node-id=127-361)) 
 
 
 
