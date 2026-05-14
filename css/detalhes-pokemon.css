@@ -87,11 +87,13 @@
     flex-direction: column;
     gap: 1.2rem;
     padding: 1.2rem;
-    max-width: 100%;
+    width: 332px;
+    height: 872px;
   }
   #card-tela-detalhes ul {
     gap: 1rem;
-    padding: 0;
+    padding: 0 ;
+    width: 100%;
   }
 
   #card-tela-detalhes ul li .pokemon-name,
@@ -99,6 +101,11 @@
   #card-tela-detalhes ul li {
     font-size: 1.4rem;
   }
+
+  #card-tela-detalhes ul li span {
+    font-size: 1.6rem;
+  }
+
 }
 
 /* DADOS BATALHA - BARRA DE PROGRESSO */
@@ -143,7 +150,7 @@ progress::-moz-progress-bar {
   display: flex;
   align-items: center; 
   justify-content: flex-start; 
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .evolution-item {
@@ -153,7 +160,7 @@ progress::-moz-progress-bar {
 }
 
 .evolution-img {
-  width: 60px;
+  width: 42px;
   height: auto;
   margin-bottom: 5px;
 }

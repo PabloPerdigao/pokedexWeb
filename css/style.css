@@ -186,23 +186,29 @@ span {
   }
 
   #card-tela-inicial {
-    height: 286px;
+    height: 328px;
+    width: 286px;
+    width: 100%;
   }
 
-  .pokemon-card-container {
-    padding: 0 2.4rem;
-  }
-
+  
   .card-pokemon form .input-search::placeholder {
     font-size: 0.8rem;
   }
 
-}
+  .card-pokemon .form{
+    margin: 0 auto;
+    justify-content: center;
+    width: 332px;
 
+  }
+  
+}
 .pokemon-card-container {
+  height: auto;
   width: 100%;
-
 }
+
 
 .card-pokemon {
   display: flex;

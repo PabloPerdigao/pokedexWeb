@@ -4,7 +4,7 @@
   align-items: center;
   gap: 1.2rem;
   background: #DBFFDD;
-  height: auto;
+  height: 476px;
   max-width: 500px;
 
 
@@ -67,16 +67,24 @@
     flex-direction: column;
     gap: 1.2rem;
     padding: 1.2rem;
-    max-width: 100%;
+    height: 100%;
+    width: 332px;
+    margin: 0 2.4rem;
   }
-
+  
   #card-tela-busca ul {
     gap: 1rem;
   }
-
+  
   #card-tela-busca ul li .pokemon-name,
   #card-tela-busca ul li .pokemon-id,
   #card-tela-busca ul li {
     font-size: 1.4rem;
   }
+  
+  /* .card-pokemon form .input-search {
+    margin: 0 2.4rem;
+  } */
+
+ 
 }
