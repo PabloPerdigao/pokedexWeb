@@ -163,7 +163,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonImgInicial.src =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
         "front_default"
-      ];
+      ] ?? data['sprites']['front_default'];
 
     // tipo do pokemon
     typeContainerInicial.innerHTML = `<img src=" ${
@@ -188,7 +188,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonImgBusca.src =
       data.sprites.versions["generation-v"][
         "black-white"
-      ].animated.front_default;
+      ].animated.front_default ?? data['sprites']['front_default'];
 
     pokemonNameBusca.innerHTML = data.name;
     pokemonIdBusca.innerHTML = `Nº ${data.id}`;
@@ -242,7 +242,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
 
         const pokeGif =
           pokeDetails.sprites.versions["generation-v"]["black-white"].animated
-            .front_default;
+            .front_default ?? pokeDetails.sprites.front_default;
 
         evolutionContainer.innerHTML += `
           <div class="evolution-item">
@@ -264,7 +264,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonImgDetalhes.src =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
         "front_default"
-      ];
+      ] ?? data['sprites']['front_default'];
 
     pokemonCharacteristic.innerHTML = characteristicsData
       ? characteristicsData.descriptions.find(
