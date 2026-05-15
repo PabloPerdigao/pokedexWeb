@@ -27,7 +27,6 @@ const pokemonDescription = document.querySelector(".pokemon-description");
 const pokemonNameDetalhes = cardTelaDetalhes.querySelector(".pokemon-name");
 const pokemonIdDetalhes = cardTelaDetalhes.querySelector(".pokemon-id");
 const pokemonImgDetalhes = cardTelaDetalhes.querySelector(".pokemon-img");
-const pokemonCharacteristic = document.querySelector(".pokemon-characteristic");
 const pokemonContainerMoves = document.querySelector(
   ".pokemon-golpes-container",
 );
@@ -112,17 +111,7 @@ const fetchPokemonDescription = async (descriptionPokemon) => {
   }
 };
 
-// função para buscar os dados de características do Pokemon na API (endpoint characteristics)
-const fetchPokemonCharacteristics = async (caracteristicaPokemon) => {
-  const characteristicsResponse = await fetch(
-    `https://pokeapi.co/api/v2/characteristic/${caracteristicaPokemon}`,
-  );
 
-  if (characteristicsResponse.status === 200) {
-    const characteristicsData = await characteristicsResponse.json();
-    return characteristicsData;
-  }
-};
 
 // Função para buscar a árvore de evoluções
 const fetchEvolutionChain = async (url) => {
@@ -145,12 +134,6 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
 
   // busca descrição do Pokemon na API
   const descriptionData = data ? await fetchPokemonDescription(data.id) : null;
-
-  // busca características do Pokemon na API
-  const characteristicsData = data
-    ? await fetchPokemonCharacteristics(data.id)
-    : null;
-
   
 
   if (data) {
@@ -265,12 +248,6 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
         "front_default"
       ] ?? data['sprites']['front_default'];
-
-    pokemonCharacteristic.innerHTML = characteristicsData
-      ? characteristicsData.descriptions.find(
-          (desc) => desc.language.name === "en",
-        ).description
-      : "Característica não disponível.";
 
 
     // renderiza golpes do Pokemon limitando em 6
