@@ -20,6 +20,7 @@
   gap: 1.4rem;
 }
 
+
 #card-tela-detalhes ul li .pokemon-name,
 #card-tela-detalhes ul li .pokemon-id,
 #card-tela-detalhes ul li,
@@ -72,7 +73,7 @@
 }
 
 #card-tela-detalhes .pokemon-img {
- margin-top: 0;
+  margin-top: 0;
 }
 
 .pokemon-dados-batalha-container {
@@ -90,9 +91,10 @@
     width: 332px;
     height: 872px;
   }
+
   #card-tela-detalhes ul {
-    gap: 1rem;
-    padding: 0 ;
+    gap: 2.4rem;
+    padding: 0;
     width: 100%;
   }
 
@@ -106,6 +108,10 @@
     font-size: 1.6rem;
   }
 
+  .pokemon-evolution-container {
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
 }
 
 /* DADOS BATALHA - BARRA DE PROGRESSO */
@@ -142,37 +148,38 @@ progress::-moz-progress-bar {
 .stat-row {
   display: flex;
   align-items: center;
-  gap: 1.2rem; 
+  gap: 1.2rem;
 }
 
 
 .pokemon-evolution-container {
   display: flex;
-  align-items: center; 
-  justify-content: flex-start; 
+  align-items: center;
+  justify-content: flex-start;
   gap: 1rem;
 }
 
 .evolution-item {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
 }
 
 .evolution-img {
-  width: 42px;
+  width: 40px;
   height: auto;
   margin-bottom: 5px;
+  aspect-ratio: 1 / 1;
 }
 
 .evolution-name {
-  text-transform: capitalize; 
-  font-size: 0.8rem; 
+  text-transform: capitalize;
+  font-size: 0.8rem;
 }
 
 .evolution-arrow {
   font-weight: bold;
-  color: #4a6b4a; 
+  color: #4a6b4a;
   font-size: 1.5rem;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
