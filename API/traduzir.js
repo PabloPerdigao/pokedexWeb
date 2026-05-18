@@ -2,19 +2,18 @@
 // função que chama API do Google, fazendo a conexão com a chave hospedada no Vercel, enviando o texto a ser traduzido 
 export default async function handler(req, res) {
 
-  // Garantimos que a nossa API  POST
+  // usando o POST para enviar a descrição pra tradução
   if (req.method !== 'POST') {
     return res.status(405).json({ erro: 'Método não permitido' });
   }
 
   const txtEn = req.body.texto;
 
-  // Acessamos o Vercel para pegar a chave do Google
+  // Acessa o Vercel para pegar a chave lá do Google
   const apiKey = process.env.GOOGLE_TRANSLATE_API_KEY;
   const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
 
   try {
-    // Fazemos o POST para o Google
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
