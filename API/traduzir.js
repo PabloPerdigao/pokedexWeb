@@ -7,7 +7,7 @@ export default async function handler(req, res) {
 
   const txtEn = req.body.texto;
 
-  // Acessa o Vercel para pegar a chave lá do Google
+  // Pega a chave do ambiente (configurada no Vercel) e monta a URL da API do Google Translate
   const apiKey = process.env.GOOGLE_TRANSLATE_API_KEY;
   const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
 
