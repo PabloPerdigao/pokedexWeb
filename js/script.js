@@ -113,7 +113,7 @@ const fetchPokemonDescription = async (descriptionPokemon) => {
 // função para traduzir descrição da PokéAPI usando Google Translate API
 const traduzirTexto = async (txtEn) => {
   try {
-    const response = await fetch("/api/traduzir.js", {
+    const response = await fetch("api/traduzir.js", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
