@@ -1,10 +1,8 @@
-
-// função que chama API do Google, fazendo a conexão com a chave hospedada no Vercel, enviando o texto a ser traduzido 
+// função que chama API do Google, fazendo a conexão com a chave hospedada no Vercel, enviando o texto a ser traduzido
 export default async function handler(req, res) {
-
   // usando o POST para enviar a descrição pra tradução
-  if (req.method !== 'POST') {
-    return res.status(405).json({ erro: 'Método não permitido' });
+  if (req.method !== "POST") {
+    return res.status(405).json({ erro: "Método não permitido" });
   }
 
   const txtEn = req.body.texto;
@@ -21,8 +19,8 @@ export default async function handler(req, res) {
         q: txtEn, // frase
         source: "en", // idioma origem
         target: "pt", // tradução
-        format: "text" 
-      })
+        format: "text",
+      }),
     });
 
     const data = await response.json();
@@ -30,9 +28,7 @@ export default async function handler(req, res) {
 
     // tradução feita envia ao front
     return res.status(200).json({ traduzido: textoTraduzido });
-
   } catch (error) {
-    
-    return res.status(500).json({ erro: 'Falha ao traduzir no servidor' });
+    return res.status(500).json({ erro: "Falha ao traduzir no servidor" });
   }
 }
