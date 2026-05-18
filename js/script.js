@@ -31,7 +31,7 @@ const pokemonContainerMoves = document.querySelector(
   ".pokemon-golpes-container",
 );
 
-// Barras de status dos dados de batalha
+// Progress bar dados de batalha
 const barHp = document.getElementById("bar-hp");
 const textHp = document.getElementById("text-hp");
 
@@ -51,14 +51,13 @@ const barSpe = document.getElementById("bar-spe");
 const textSpe = document.getElementById("text-spe");
 
 let searchPokemon = 1;
-let somPokemonAtual = ""; 
-let telaAtual = "inicial"; 
+let somPokemonAtual = "";
+let telaAtual = "inicial";
 
 // TROCA DE TELAS COM O D-PAD
 function mudarTela(novaTela) {
   telaAtual = novaTela;
 
-  
   cardTelaInicial.setAttribute("hidden", "");
   cardTelaBusca.setAttribute("hidden", "");
   cardTelaDetalhes.setAttribute("hidden", "");
@@ -111,7 +110,29 @@ const fetchPokemonDescription = async (descriptionPokemon) => {
   }
 };
 
+// função para traduzir descrição da PokéAPI usando Google Translate API
+const traduzirTexto = async (txtEn) => {
+  try {
+    const response = await fetch("/api/traduzir.js", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
 
+      body: JSON.stringify({ texto: txtEn }),
+    });
+
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.traduzido;
+    }
+
+    return txtEn; 
+  } catch (error) {
+    console.error("Erro ao conectar com a própria API:", error);
+    return txtEn;
+  }
+};
 
 // Função para buscar a árvore de evoluções
 const fetchEvolutionChain = async (url) => {
@@ -122,7 +143,11 @@ const fetchEvolutionChain = async (url) => {
 };
 
 //  Função para renderizar os dados do Pokemon nas respectivas tela
-const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) => {
+const renderPokemon = async (
+  pokemon,
+  isInitialLoad = false,
+  isSearch = false,
+) => {
   pokemonNameInicial.innerHTML = "Carregando...";
 
   const data = await fetchPokemon(pokemon);
@@ -134,10 +159,8 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
 
   // busca descrição do Pokemon na API
   const descriptionData = data ? await fetchPokemonDescription(data.id) : null;
-  
 
   if (data) {
-
     // TELA INICIAL: renderiza o nome, número, gif e tipo do Pokemon
     pokemonIdInicial.innerHTML = `Nº ${data.id}`;
     pokemonNameInicial.innerHTML = data.name;
@@ -146,7 +169,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonImgInicial.src =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
         "front_default"
-      ] ?? data['sprites']['front_default'];
+      ] ?? data["sprites"]["front_default"];
 
     // tipo do pokemon
     typeContainerInicial.innerHTML = `<img src=" ${
@@ -169,9 +192,8 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     // TELA REUSLTADO BUSCA: renderiza o gif , nome, número, , peso, altura, habilidades, descrição e som do Pokemon
 
     pokemonImgBusca.src =
-      data.sprites.versions["generation-v"][
-        "black-white"
-      ].animated.front_default ?? data['sprites']['front_default'];
+      data.sprites.versions["generation-v"]["black-white"].animated
+        .front_default ?? data["sprites"]["front_default"];
 
     pokemonNameBusca.innerHTML = data.name;
     pokemonIdBusca.innerHTML = `Nº ${data.id}`;
@@ -179,16 +201,22 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonHeight.innerHTML = ` ${data.height / 10} m`;
     pokemonAbilities.innerHTML = ` ${data.abilities.map((ability) => ability.ability.name).join(", ")}`;
 
+    // busca descrição em inglês
     if (descriptionData) {
-      
       const descriptionEntry = descriptionData.flavor_text_entries.find(
         (desc) => desc.language.name === "en",
       );
 
       if (descriptionEntry) {
-   
         const cleanText = descriptionEntry.flavor_text.replace(/[\f\n]/g, " ");
-        pokemonDescription.innerHTML = cleanText;
+
+        pokemonDescription.innerHTML = "Traduzindo a descrição...";
+
+        // chama função de tradução
+        const textoTraduzido = await traduzirTexto(cleanText);
+
+        // exibe descrição traduzida
+        pokemonDescription.innerHTML = textoTraduzido;
       } else {
         pokemonDescription.innerHTML = "Descrição não disponível.";
       }
@@ -197,9 +225,8 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     // acessa o som do pokemon e atualiza variável apra controlar som do pokemon
     somPokemonAtual = data.cries.latest;
 
-
     // TELA DETALHES: renderiza o nome, número, gif, características, golpes, dados de batalhae evolução do Pokemon
-    
+
     // Pega a URL das evoluções e faz a requisição de nomes e gifs dos pokémons e renderiza na tela de detalhes
     if (descriptionData && descriptionData.evolution_chain) {
       const evolutionUrl = descriptionData.evolution_chain.url;
@@ -211,7 +238,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
       // limta busca em 3 evoluções
       do {
         evolutionNames.push(evolucaoAtual.species.name);
-        evolucaoAtual = evolucaoAtual.evolves_to[0]; 
+        evolucaoAtual = evolucaoAtual.evolves_to[0];
       } while (evolucaoAtual && evolutionNames.length < 3);
 
       const evolutionContainer = document.getElementById("evolution-container");
@@ -247,8 +274,7 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     pokemonImgDetalhes.src =
       data["sprites"]["versions"]["generation-v"]["black-white"]["animated"][
         "front_default"
-      ] ?? data['sprites']['front_default'];
-
+      ] ?? data["sprites"]["front_default"];
 
     // renderiza golpes do Pokemon limitando em 6
     const firstSixMoves = data.moves.slice(0, 6);
@@ -261,7 +287,6 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
       <span class="pokemon-moves">${moveNameFormated}</span>
     `;
     });
-
 
     // renderiza os dados de batalha do Pokemon (HP, ATK, DEF, SPA, SPD, SPE)
     barHp.value = data.stats[0].base_stat;
@@ -282,19 +307,17 @@ const renderPokemon = async (pokemon, isInitialLoad = false, isSearch = false) =
     barSpe.value = data.stats[5].base_stat;
     textSpe.innerHTML = data.stats[5].base_stat;
 
-    
     pokedexInput.value = "";
     searchPokemon = data.id;
 
     // CONTROLE EXIBIÇÃO DAS TELAS
     if (isInitialLoad) {
-      mudarTela("inicial"); 
+      mudarTela("inicial");
     } else if (isSearch) {
-      mudarTela("busca"); 
+      mudarTela("busca");
     } else if (telaAtual === "erro") {
-      mudarTela("inicial"); 
+      mudarTela("inicial");
     }
-    
   } else {
     mudarTela("erro");
   }
